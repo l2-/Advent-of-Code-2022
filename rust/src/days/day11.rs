@@ -9,8 +9,8 @@ struct Monkey {
     op_var_2: i64,
     op_p: bool,
     divisible_by: i64,
-    target1: i32,
-    target2: i32,
+    target1: i64,
+    target2: i64,
     inspected_count: i64,
 }
 

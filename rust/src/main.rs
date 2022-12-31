@@ -6,10 +6,11 @@ mod days {
     pub mod day12;
     pub mod day13;
     pub mod day14;
+    pub mod day15;
 }
 mod ulitity;
 use days::*;
 
 fn main() {
-    day14::day();
+    day15::day();
 }

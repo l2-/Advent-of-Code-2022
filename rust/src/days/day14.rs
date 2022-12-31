@@ -4,7 +4,7 @@ use super::super::dayx::*;
 use std::cmp::*;
 use std::collections::HashSet;
 
-type Coord = (i32, i32);
+type Coord = (i64, i64);
 type LineSegment = (Coord, Coord);
 
 enum Placement{
@@ -38,7 +38,7 @@ pub fn day() {
 
     let width = width * 2;
     let height = height + 2;
-    let mut blocked_set: HashSet<i32> = HashSet::new();
+    let mut blocked_set: HashSet<_> = HashSet::new();
     for &((x1, y1), (x2, y2)) in line_segments.iter() {
         for x in min(x1, x2)..max(x1, x2) + 1 {
             let index = x + y1 * width;
@@ -50,7 +50,7 @@ pub fn day() {
         }
     }
 
-    let is_stable = |set: &HashSet<i32>, x: i32, y: i32, width: i32, height: i32| -> Placement {
+    let is_stable = |set: &HashSet<_>, x, y, width, height| -> Placement {
         if y >= height - 1 { return SUNK; }
         let index = x + y * width;
         use Placement::*;
@@ -68,7 +68,7 @@ pub fn day() {
         return BLOCKED;
     };
 
-    let drop_sand = |set: &mut HashSet<i32>, x: &mut i32, y: &mut i32, width: i32, total_sand_dropped: &mut i32| -> () {
+    let drop_sand = |set: &mut HashSet<_>, x: &mut _, y: &mut _, width: _, total_sand_dropped: &mut _| -> () {
         let index = *x + *y * width;
         set.insert(index); 
         *x = 500; *y = 0; *total_sand_dropped += 1;
