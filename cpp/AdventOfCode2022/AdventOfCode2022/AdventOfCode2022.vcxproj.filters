@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AdventOfCode2022.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="template.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="problem1input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem1sampleinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem2input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem2sampleinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem3input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem3sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem4input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem4sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem5input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem5sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem6sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem6input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem7sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem7input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem8sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem8input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem9sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem9input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem10sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem10input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem11sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem11input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem12sinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem12input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="problem13input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day14.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day15.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day16.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day17.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day18.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day19.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day20.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day21.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day22.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day23.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day24.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="day25.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="precomp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BigInt.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="problem13sinput.xt">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
