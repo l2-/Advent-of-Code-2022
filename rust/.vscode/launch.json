@@ -25,13 +25,13 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'advent_of_code_2022'",
+            "name": "Release mode",
             "cargo": {
                 "args": [
-                    "test",
-                    "--no-run",
+                    "build",
                     "--bin=advent_of_code_2022",
-                    "--package=advent_of_code_2022"
+                    "--package=advent_of_code_2022",
+                    "--release"
                 ],
                 "filter": {
                     "name": "advent_of_code_2022",
@@ -39,7 +39,7 @@
                 }
             },
             "args": [],
-            "cwd": "${workspaceFolder}"
-        }
+            "cwd": "${workspaceFolder}",
+        },
     ]
 }

@@ -3142,6 +3142,6 @@ namespace problem25
 }
 int main()
 {
-	problem15();
+	problem16::problem16();
 	return 0;
 }

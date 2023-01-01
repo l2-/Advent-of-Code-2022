@@ -1,4 +1,4 @@
-use std::*;
+use std::{*, os::windows};
 use regex::Regex;
 pub type Int2 = (i64, i64);
 pub type AABB2 = (Int2, Int2);
@@ -83,5 +83,18 @@ pub trait Bounds2d {
 impl Bounds2d for Int2 {
     fn in_bounds(&self, ((min_x, min_y), (max_x, max_y)) : AABB2) -> bool {
         return self.0.in_bounds(min_x, max_x) && self.1.in_bounds(min_y, max_y)
+    }
+}
+
+pub fn print_single_digit_matrix(matrix: &Vec<i64>, width: usize, height: usize) -> () {
+    for y in 0..height {
+        let mut s: String = String::from("");
+        for x in 0..width {
+            let mut c = String::from("*");
+            let d = matrix[x + y * width];
+            if d.in_bounds(0, 9) { c = d.to_string(); }
+            s += &c;
+        }
+        println!("{0}", s);
     }
 }

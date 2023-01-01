@@ -1,7 +1,5 @@
 use std::collections::*;
 
-use crate::ulitity;
-
 use super::super::ulitity::*;
 use super::super::dayx::*;
 
@@ -9,11 +7,10 @@ pub fn day() {
     let day = 15;
     print_day(day);
     let lines = read_lines(&input_path(day));
+    // beacons stored in a map by their y coordinate
     let mut beacons = HashMap::<i64, HashSet<i64>>::new();
     // sbs is sensor and beacon tuples
-    let sbs: Vec<_> = lines.iter().filter(|l| string_to_ints(&l).len() == 4).map(|l| {
-        let ints = string_to_ints(&l); return (ints[0], ints[1], ints[2], ints[3]);
-    }).collect();
+    let sbs: Vec<(i64, i64, i64, i64)> = lines.iter().map(|l| string_to_ints(&l)).filter(|ints| ints.len() == 4).map(|ints|  (ints[0], ints[1], ints[2], ints[3])).collect();
     for (_, _, x2, y2) in sbs.iter()  {
         if beacons.contains_key(y2) {
             beacons.get_mut(y2).unwrap().insert(*x2);
@@ -77,6 +74,8 @@ pub fn day() {
         bcoeffs.insert(l3.1);
     }
 
+    // intersect all lines with positive gradient with all lines with negative gradient
+    // there should be only 1 intersection point within the bounds which is our answer
     let mut point = (0,0);
     let mut found = false;
     for &a in acoeffs.iter() {
