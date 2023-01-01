@@ -1,5 +1,7 @@
 use std::collections::*;
 
+use crate::ulitity;
+
 use super::super::ulitity::*;
 use super::super::dayx::*;
 
@@ -82,7 +84,7 @@ pub fn day() {
         for &b in bcoeffs.iter() {
             if found { break; }
 
-            let mut out = (0,0);
+            let mut out = (0, 0);
             let l1= (1, a);
             let l2 = (-1, b);
             intersect(l1, l2, &mut out.0, &mut out.1);
@@ -96,7 +98,7 @@ pub fn day() {
                     valid = false;
                 }
             }
-            if valid && in_bounds2d((x, y), bounds)
+            if valid && (x, y).in_bounds(bounds)
             {
                 point = (x, y);
                 found = true;

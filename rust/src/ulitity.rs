@@ -1,5 +1,7 @@
 use std::*;
 use regex::Regex;
+pub type Int2 = (i64, i64);
+pub type AABB2 = (Int2, Int2);
 
 pub fn read_lines(file_path:&str) -> Vec<String> {
     let res = fs::read_to_string(file_path);
@@ -26,7 +28,7 @@ pub fn string_to_ints(_str:&str) -> Vec<i64> {
 }
 
 // returns (a, b) in y = ax + b given 2 points
-pub fn line_from_points(x1: i64, y1: i64, x2: i64, y2: i64) -> (i64, i64) {
+pub fn line_from_points(x1: i64, y1: i64, x2: i64, y2: i64) -> Int2 {
     let a = (y2 - y1) / (x2 - x1);
     let b = y1 - x1 * a;
     return (a, b);
@@ -37,10 +39,10 @@ pub fn manhattan_distance(x1: i64, y1: i64, x2: i64, y2: i64) -> i64 {
     // return distance(x1, x2) + distance(y1, y2);
 }
 
-pub fn reduce_line_segments(_segments: &Vec<(i64, i64)>) -> Vec<(i64, i64)> {
+pub fn reduce_line_segments(_segments: &Vec<Int2>) -> Vec<Int2> {
     let mut segments = _segments.clone();
     segments.sort_by(|(a,_), (b,_)| a.partial_cmp(b).unwrap());
-    let mut result:Vec<(i64, i64)> = vec![];
+    let mut result:Vec<Int2> = vec![];
     if segments.len() < 1 { return result; }
     let mut start_segment = segments[0].0;
     let mut end_segment = segments[0].1;
@@ -55,7 +57,7 @@ pub fn reduce_line_segments(_segments: &Vec<(i64, i64)>) -> Vec<(i64, i64)> {
     return result;
 }
 
-pub fn intersect((a1, b1): (i64, i64), (a2, b2): (i64, i64), x_out: &mut i64, y_out: &mut i64) -> bool {
+pub fn intersect((a1, b1): Int2, (a2, b2): Int2, x_out: &mut i64, y_out: &mut i64) -> bool {
     if a1 - a2 == 0 { return false; }
     *x_out = (b2 - b1) / (a1 - a2);
     *y_out = a1 * (*x_out) + b1;
@@ -67,9 +69,19 @@ pub fn distance(a: i64, b: i64) -> i64 {
     return i64::abs(a - b) + 1;
 }
 
-pub fn in_bounds(val: i64, _min: i64, _max: i64) -> bool {
-    return val >= _min && val <= _max;
+pub trait Bounds1d {
+    fn in_bounds (&self, _min: i64, _max: i64) -> bool;
 }
-pub fn in_bounds2d((x, y) : (i64, i64), ((min_x, min_y), (max_x, max_y)) : ((i64, i64), (i64, i64))) -> bool {
-    return in_bounds(x, min_x, max_x) && in_bounds(y, min_y, max_y);
+impl Bounds1d for i64 {
+    fn in_bounds (&self, _min: i64, _max: i64) -> bool {
+        return self >= &_min && self <= &_max;
+    }
+}
+pub trait Bounds2d {
+    fn in_bounds(&self, aabb : AABB2) -> bool;
+}
+impl Bounds2d for Int2 {
+    fn in_bounds(&self, ((min_x, min_y), (max_x, max_y)) : AABB2) -> bool {
+        return self.0.in_bounds(min_x, max_x) && self.1.in_bounds(min_y, max_y)
+    }
 }
