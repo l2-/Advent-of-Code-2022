@@ -1,7 +1,9 @@
 use std::{*, os::windows};
 use regex::Regex;
 pub type Int2 = (i64, i64);
+pub type Int3 = (i64, i64, i64);
 pub type AABB2 = (Int2, Int2);
+pub type AABB3 = (Int3, Int3);
 
 pub fn read_lines(file_path:&str) -> Vec<String> {
     let res = fs::read_to_string(file_path);
@@ -83,6 +85,34 @@ pub trait Bounds2d {
 impl Bounds2d for Int2 {
     fn in_bounds(&self, ((min_x, min_y), (max_x, max_y)) : AABB2) -> bool {
         return self.0.in_bounds(min_x, max_x) && self.1.in_bounds(min_y, max_y)
+    }
+}
+pub trait Bounds3d {
+    fn in_bounds(&self, aabb : AABB3) -> bool;
+}
+impl Bounds3d for Int3 {
+    fn in_bounds(&self, (_min, _max) : AABB3) -> bool {
+        return self.0.in_bounds(_min.0, _max.0) && self.1.in_bounds(_min.1, _max.1) && self.2.in_bounds(_min.2, _max.2);
+    }
+}
+pub trait Maths3i64 {
+    fn add(&self, other : Int3) -> Int3;
+    fn sub(&self, other : Int3) -> Int3;
+    fn element_wise_min(&self, other : Int3) -> Int3;
+    fn element_wise_max(&self, other : Int3) -> Int3;
+}
+impl Maths3i64 for Int3 {
+    fn add(&self, (x, y, z) : Int3) -> Int3 {
+        (self.0 + x, self.1 + y, self.2 + z)
+    }
+    fn sub(&self, (x, y, z) : Int3) -> Int3 {
+        (self.0 - x, self.1 - y, self.2 - z)
+    }
+    fn element_wise_min(&self, (x, y, z) : Int3) -> Int3 {
+        return (self.0.min(x), self.1.min(y), self.2.min(z));
+    }
+    fn element_wise_max(&self, (x, y, z) : Int3) -> Int3 {
+        return (self.0.max(x), self.1.max(y), self.2.max(z));
     }
 }
 
